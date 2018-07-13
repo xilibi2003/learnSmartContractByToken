@@ -1,9 +1,13 @@
 # 通过代币学智能合约开发 
 
 此库是视频课程代码，由[深入浅出区块链](https://learnblockchain.cn)博主，以太坊基金会讲师 Tiny熊出品，[在线视频地址请戳](https://m.qlchat.com/live/channel/channelPage/2000001541262578.htm)
-欢迎关注登链![公众号](qrcode.jpg)及时获取最新的课程信息。
 
-同时欢迎大家加入国内最高质量的区块链交流社区![](xiaomi.jpeg)
+欢迎关注登链公众号![](qrcode.png)
+及时获取最新的课程信息。
+
+
+同时欢迎大家加入国内最高质量的区块链交流社区
+![](xiaomi.png)
 
 
 # 视频大纲
