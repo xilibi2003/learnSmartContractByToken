@@ -5,7 +5,7 @@ contract SimpleToken {
     mapping(address => uint256) public balanceOf;
     event Transfer(address indexed receiver, uint256 value );
     
-    constructor (uint256 initialSupply) {
+    constructor (uint256 initialSupply) public {
         balanceOf[msg.sender] = initialSupply;
     }
     

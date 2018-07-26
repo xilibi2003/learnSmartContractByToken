@@ -1,19 +1,21 @@
-pragma solidity ^0.4.20;
-
 contract ERC20Interface {
-  string public name;
-  string public symbol;
-  uint8 public  decimals;
-  uint public totalSupply;
+
+    string public constant name = "Token Name";
+    string public constant symbol = "SYM";
+    uint8 public constant decimals = 18;  // 18 is the most common number of decimal places
+    // 0.0000000000000000001  个代币
+
+    function totalSupply() public constant returns (uint);
+
+    function balanceOf(address tokenOwner) public constant returns (uint balance);
+
+    function allowance(address tokenOwner, address spender) public constant returns (uint remaining);
+    function approve(address spender, uint tokens) public returns (bool success);
+
+    function transfer(address to, uint tokens) public returns (bool success);
+    function transferFrom(address from, address to, uint tokens) public returns (bool success);
 
 
-  function transfer(address _to, uint256 _value) returns (bool success);
-  function transferFrom(address _from, address _to, uint256 _value) returns (bool success);
-  
-  function approve(address _spender, uint256 _value) returns (bool success);
-  function allowance(address _owner, address _spender) view returns (uint256 remaining);
-
-  event Transfer(address indexed _from, address indexed _to, uint256 _value);
-  event Approval(address indexed _owner, address indexed _spender, uint256 _value);
-
+    event Transfer(address indexed from, address indexed to, uint tokens);
+    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
 }
