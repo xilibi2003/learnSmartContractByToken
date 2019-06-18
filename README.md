@@ -1,6 +1,6 @@
 # 通过代币学智能合约开发 
 
-此库是视频课程代码，由[深入浅出区块链](https://learnblockchain.cn)博主，以太坊基金会讲师 Tiny熊出品，[在线视频地址请戳](https://m.qlchat.com/live/channel/channelPage/2000001541262578.htm)
+此库是视频课程代码，由[深入浅出区块链](https://learnblockchain.cn)博主，以太坊基金会讲师 Tiny熊出品，[在线视频地址请戳](https://ke.qq.com/course/317230)
 
 欢迎关注登链公众号![](qrcode.jpg)
 及时获取最新的课程信息。
@@ -55,5 +55,5 @@ Remix简单介绍；学习编写简单的合约；solidity mapping的使用
 
 
 
-欢迎大家加入国内最高质量的区块链交流社区
+欢迎大家加入国内高质量的区块链[技术问答交流社区](https://learnblockchain.cn/2019/01/12/about-qa/)
 ![](xiaomi.jpg)

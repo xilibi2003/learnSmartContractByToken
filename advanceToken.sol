@@ -1,4 +1,4 @@
-pragma solidity ^0.4.20;
+pragma solidity >=0.4.22 <0.7.0;
 
 import './owned.sol';
 import './erc20.sol';
@@ -11,16 +11,16 @@ contract AdvanceToken is ERC20, owned {
     event FrozenFunds(address target, bool frozen);
     event Burn(address target, uint amount);
 
-    constructor (string _name) ERC20(_name) public {
+    constructor (string memory _name) ERC20(_name) public {
 
     }
 
     function mine(address target, uint amount) public onlyOwner {
         totalSupply += amount;
-        balanceOf[target] += amount;
+        _balances[target] += amount;
 
         emit AddSupply(amount);
-        emit Transfer(0, target, amount);
+        emit Transfer(address(0), target, amount);
     }
 
     function freezeAccount(address target, bool freeze) public onlyOwner {
@@ -44,32 +44,32 @@ contract AdvanceToken is ERC20, owned {
       require(_to != address(0));
       require(!frozenAccount[_from]);
 
-      require(balanceOf[_from] >= _value);
-      require(balanceOf[ _to] + _value >= balanceOf[ _to]);
+      require(_balances[_from] >= _value);
+      require(_balances[ _to] + _value >= _balances[ _to]);
 
-      balanceOf[_from] -= _value;
-      balanceOf[_to] += _value;
+      _balances[_from] -= _value;
+      _balances[_to] += _value;
 
       emit Transfer(_from, _to, _value);
       return true;
   }
 
     function burn(uint256 _value) public returns (bool success) {
-        require(balanceOf[msg.sender] >= _value);
+        require(_balances[msg.sender] >= _value);
 
         totalSupply -= _value;
-        balanceOf[msg.sender] -= _value;
+        _balances[msg.sender] -= _value;
 
         emit Burn(msg.sender, _value);
         return true;
     }
 
     function burnFrom(address _from, uint256 _value)  public returns (bool success) {
-        require(balanceOf[_from] >= _value);
+        require(_balances[_from] >= _value);
         require(allowed[_from][msg.sender] >= _value);
 
         totalSupply -= _value;
-        balanceOf[msg.sender] -= _value;
+        _balances[msg.sender] -= _value;
         allowed[_from][msg.sender] -= _value;
 
         emit Burn(msg.sender, _value);

@@ -1,12 +1,11 @@
-
-pragma solidity ^0.4.16;
+pragma solidity >=0.4.22 <0.7.0;
 
 interface token {
     function transfer(address receiver, uint amount) external ;
 }
 
 contract Ico {
-    address public beneficiary;
+    address payable public beneficiary;
     uint public fundingGoal;
     uint public amountRaised;
 
@@ -35,7 +34,7 @@ contract Ico {
     }
 
 
-    function () public payable {
+    function () external payable {
         require(!crowdsaleClosed);
 
         uint amount = msg.value;  // wei
