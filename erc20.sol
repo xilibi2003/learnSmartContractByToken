@@ -24,6 +24,10 @@ contract ERC20 is ERC20Interface {
        _balances[msg.sender] = totalSupply;
     }
 
+    function balanceOf(address tokenOwner) public view returns (uint balance) {
+        return _balances[tokenOwner];
+    }
+
   // 转移
   function transfer(address _to, uint256 _value)  public returns (bool success) {
       require(_to != address(0));
